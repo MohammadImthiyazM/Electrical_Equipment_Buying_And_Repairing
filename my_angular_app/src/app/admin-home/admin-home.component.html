@@ -1,0 +1,64 @@
+<div class="admin-home-wrapper">
+  <header class="header">
+    <div class="header-content">
+      <h1><span class="icon animated-icon">⚡</span> Electrical Equipment Hub</h1>
+      <div class="user-section">
+        <span class="greeting animated-text">Hello, {{ username || '' }}!</span>
+        <button class="logout-btn animated-btn" (click)="logout()">
+          <span class="btn-icon">🚪</span> Logout
+        </button>
+      </div>
+    </div>
+  </header>
+  <main class="main-content">
+    <section class="admin-options-section">
+      <div class="option-card" (click)="navigateToInsertProduct()">
+        <div class="card-content">
+          <span class="card-icon animated-icon">➕</span>
+          <h3>Insert a New Product</h3>
+          <p>Add new electrical equipment to the inventory.</p>
+          <div class="decorative-shapes">
+            <span class="shape spark"></span>
+            <span class="shape line"></span>
+          </div>
+        </div>
+      </div>
+      <div class="option-card" (click)="navigateToManageProducts()">
+        <div class="card-content">
+          <span class="card-icon animated-icon">📦</span>
+          <h3>Manage Available Product</h3>
+          <p>View, edit, or delete existing products.</p>
+          <div class="decorative-shapes">
+            <span class="shape spark"></span>
+            <span class="shape line"></span>
+          </div>
+        </div>
+      </div>
+      <div class="option-card" (click)="navigateToViewRepairs()">
+        <div class="card-content">
+          <span class="card-icon animated-icon">🔧</span>
+          <h3>View Repair Request</h3>
+          <p>Review submitted repair requests.</p>
+          <div class="decorative-shapes">
+            <span class="shape spark"></span>
+            <span class="shape line"></span>
+          </div>
+        </div>
+      </div>
+      <div class="option-card" (click)="navigateToViewProducts()">
+        <div class="card-content">
+          <span class="card-icon animated-icon">📊</span>
+          <h3>View Products</h3>
+          <p>View product details, sales stats, and customer orders.</p>
+          <div class="decorative-shapes">
+            <span class="shape spark"></span>
+            <span class="shape line"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <p>© 2025 Electrical Equipment Hub. All rights reserved. <span class="footer-icon animated-icon">⚡</span></p>
+  </footer>
+</div>

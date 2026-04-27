@@ -1,0 +1,126 @@
+<div class="signup-container">
+  <div class="signup-card">
+    <div class="split-wrapper">
+      <!-- Left Side: Form -->
+      <div class="form-side">
+        <div class="branding">
+          <span class="icon animated-icon">⚡</span>
+          <h1>Electrical Equipment Hub</h1>
+        </div>
+        <form (ngSubmit)="onSignup()" class="signup-form">
+          <div class="header-gradient">
+            <h2>Sign Up</h2>
+            <p class="tagline">Join the power community!</p>
+          </div>
+          <div class="message-box">
+            <div class="success-message" *ngIf="successMessage">
+              <span class="message-icon">✅</span> {{ successMessage }}
+            </div>
+            <div class="error-message" *ngIf="errorMessage">
+              <span class="message-icon">❌</span> {{ errorMessage }}
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="firstName"><span class="field-icon">👤</span> First Name</label>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              [(ngModel)]="firstName"
+              placeholder="Enter your first name"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="lastName"><span class="field-icon">👤</span> Last Name</label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              [(ngModel)]="lastName"
+              placeholder="Enter your last name"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="username"><span class="field-icon">🆔</span> Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              [(ngModel)]="username"
+              placeholder="Enter your username"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="email"><span class="field-icon">✉️</span> Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              [(ngModel)]="email"
+              placeholder="Enter your email"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="phone"><span class="field-icon">📞</span> Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              [(ngModel)]="phone"
+              placeholder="Enter your phone number"
+              pattern="[0-9]{10}"
+              required>
+          </div>
+          <div class="form-group">
+            <label for="address"><span class="field-icon">🏠</span> Address</label>
+            <textarea
+              id="address"
+              name="address"
+              [(ngModel)]="address"
+              placeholder="Enter your address (e.g., 123 Main St, City, Country)"
+              rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="usertype"><span class="field-icon">🎭</span> User Type</label>
+            <select
+              id="usertype"
+              name="usertype"
+              [(ngModel)]="usertype"
+              required>
+              <option value="" disabled selected>Select user type</option>
+              <option value="user">User</option>
+              <option value="admin">Admin</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="password"><span class="field-icon">🔒</span> Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              [(ngModel)]="password"
+              placeholder="Enter your password"
+              required>
+          </div>
+          <button type="submit" [disabled]="isLoading" class="signup-btn animated-btn">
+            <span class="btn-icon">🚀</span> {{ isLoading ? 'Signing Up...' : 'Sign Up' }}
+          </button>
+          <p class="login-link">Already have an account? <a href="/login" class="link-animated">Login</a></p>
+        </form>
+      </div>
+      <!-- Right Side: Design -->
+      <div class="design-side">
+        <div class="design-content">
+          <span class="design-icon">⚡</span>
+          <h3>Welcome Aboard!</h3>
+          <p>Unleash the power of premium equipment and expert repairs.</p>
+          <div class="decorative-shapes">
+            <span class="shape circle"></span>
+            <span class="shape wave"></span>
+            <span class="shape triangle"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

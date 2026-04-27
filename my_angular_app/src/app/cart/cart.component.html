@@ -1,0 +1,44 @@
+<div class="cart-wrapper">
+  <header class="header">
+    <h1 (click)="goToHome()" class="clickable-title"><span class="icon">🛒</span> Your Cart</h1>
+    <div class="nav-buttons">
+      <button class="back-btn" (click)="goBack()">Back to Products</button>
+      <button class="clear-btn" (click)="clearCart()" *ngIf="cartItems.length > 0">Clear Cart</button>
+    </div>
+  </header>
+  <main class="main-content">
+    <section class="cart-section">
+      <h2>Cart Items for {{ username }}</h2>
+      <div class="message-box">
+        <div class="success-message" *ngIf="successMessage">{{ successMessage }}</div>
+        <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+        <div class="loading-message" *ngIf="isLoading">Loading cart items...</div>
+      </div>
+      <div class="cart-grid" *ngIf="!isLoading && !errorMessage && cartItems.length > 0; else emptyCart">
+        <div class="cart-item" *ngFor="let item of cartItems">
+          <img [src]="item.imageUrl" [alt]="item.name" class="cart-image" (error)="onImageError($event, item.imageUrl)">
+          <div class="item-info">
+            <h3>{{ item.name }}</h3>
+            <p>{{ item.description }}</p>
+            <span class="price">Rs. {{ item.price.toFixed(2) }}</span>
+            <div class="quantity-control">
+              <button class="quantity-btn" (click)="updateQuantity(item, -1)">–</button>
+              <span class="quantity">{{ item.quantity }}</span>
+              <button class="quantity-btn" (click)="updateQuantity(item, 1)">+</button>
+            </div>
+            <button class="remove-btn" (click)="removeItem(item)">Remove</button>
+          </div>
+        </div>
+      </div>
+      <div class="proceed-to-pay" *ngIf="cartItems.length > 0">
+        <button class="proceed-btn" (click)="proceedToPay()">Proceed to Pay</button>
+      </div>
+      <ng-template #emptyCart>
+        <p class="empty-message">Your cart is empty. Add some items from the products page!</p>
+      </ng-template>
+    </section>
+  </main>
+  <footer class="footer">
+    <p>© 2025 Electrical Equipment Hub. All rights reserved.</p>
+  </footer>
+</div>

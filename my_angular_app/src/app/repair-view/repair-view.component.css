@@ -1,0 +1,249 @@
+/* Enhanced styles to complement Tailwind CSS and add vibrancy */
+
+/* Main container with gradient background */
+.container {
+  background: linear-gradient(135deg, #e0f2fe 0%, #f3e8ff 100%); /* Light blue to purple gradient */
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* Inner card container with subtle shadow and rounded corners */
+.bg-white {
+  background: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.bg-white:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling with modern typography */
+.border-b-2 {
+  border-color: #6366f1; /* Indigo-500 */
+  padding-bottom: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.text-2xl {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1f2937; /* Gray-800 */
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+
+.text-gray-600 {
+  color: #6b7280;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+/* Repair request section */
+.text-xl {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #374151; /* Gray-700 */
+  margin-bottom: 1rem;
+}
+
+/* Loading and empty states */
+.text-gray-500 {
+  color: #9ca3af;
+  font-size: 1.1rem;
+  font-style: italic;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+/* Repair cards grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Individual repair cards with gradient and hover effects */
+.shadow-md {
+  background: linear-gradient(145deg, #f9fafb, #e5e7eb); /* Subtle gray gradient */
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.shadow-md:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(145deg, #ffffff, #f3f4f6);
+}
+
+/* Card content styling */
+.text-lg {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #4f46e5; /* Indigo-600 */
+  margin-bottom: 0.5rem;
+}
+
+.text-gray-600 strong {
+  font-weight: 600;
+  color: #1f2937; /* Gray-800 */
+}
+
+/* Button container */
+.space-x-2 {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Button styling with vibrant colors and animations */
+.bg-yellow-500 {
+  background-color: #f59e0b; /* Amber-500 */
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.bg-yellow-500:hover {
+  background-color: #d97706; /* Amber-600 */
+  transform: scale(1.05);
+}
+
+.bg-blue-500 {
+  background-color: #3b82f6; /* Blue-500 */
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.bg-blue-500:hover {
+  background-color: #2563eb; /* Blue-600 */
+  transform: scale(1.05);
+}
+
+.bg-green-500 {
+  background-color: #10b981; /* Emerald-500 */
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.bg-green-500:hover {
+  background-color: #059669; /* Emerald-600 */
+  transform: scale(1.05);
+}
+
+.bg-red-500 {
+  background-color: #ef4444; /* Red-500 */
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.bg-red-500:hover {
+  background-color: #dc2626; /* Red-600 */
+  transform: scale(1.05);
+}
+
+/* Reviewed text */
+.text-green-600 {
+  color: #059669; /* Emerald-600 */
+  font-weight: 600;
+  margin-top: 0.75rem;
+}
+
+/* Error and success messages */
+.bg-red-100 {
+  background-color: #fee2e2; /* Red-100 */
+  color: #dc2626; /* Red-700 */
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.bg-green-100 {
+  background-color: #d1fae5; /* Emerald-100 */
+  color: #047857; /* Emerald-700 */
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.fixed {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 50;
+  max-width: 300px;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-10px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr; /* Single column on smaller screens */
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  .bg-white {
+    padding: 1.5rem;
+  }
+
+  .fixed {
+    max-width: 90%;
+    left: 5%;
+    right: 5%;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-2xl {
+    font-size: 1.5rem;
+  }
+
+  .text-xl {
+    font-size: 1.25rem;
+  }
+
+  .space-x-2 {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .bg-yellow-500,
+  .bg-blue-500,
+  .bg-green-500,
+  .bg-red-500 {
+    width: 100%;
+    text-align: center;
+  }
+}

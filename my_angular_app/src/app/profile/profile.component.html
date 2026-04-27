@@ -1,0 +1,52 @@
+<div class="profile-wrapper">
+    <header class="header">
+      <div class="header-content">
+        <h1><span class="icon animated-icon">👤</span> Your Profile</h1>
+        <div class="user-section">
+          <span class="greeting animated-text">Hello, {{ username }}!</span>
+          <button class="home-btn animated-btn" (click)="goToHome()">
+            <span class="btn-icon">🏠</span> Home
+          </button>
+          <button class="logout-btn animated-btn" (click)="logout()">
+            <span class="btn-icon">🚪</span> Logout
+          </button>
+        </div>
+      </div>
+    </header>
+    <main class="main-content">
+      <section class="profile-section">
+        <div class="profile-container">
+          <h2 class="section-title animated-text">Manage Your Details</h2>
+          <div *ngIf="isLoading" class="loading">Loading profile...</div>
+          <div *ngIf="errorMessage" class="error-message animated-text">{{ errorMessage }}</div>
+          <div *ngIf="successMessage" class="success-message animated-text">{{ successMessage }}</div>
+          <form *ngIf="!isLoading" class="profile-form">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input id="username" type="text" [(ngModel)]="userDetails.username" name="username" disabled />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input id="email" type="email" [(ngModel)]="userDetails.email" name="email" disabled />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input id="phone" type="text" [(ngModel)]="userDetails.phone" name="phone" placeholder="Enter phone number" />
+            </div>
+            <div class="form-group">
+              <label for="address">Address</label>
+              <textarea id="address" [(ngModel)]="userDetails.address" name="address" placeholder="Enter address"></textarea>
+            </div>
+            <div class="form-actions">
+              <button type="button" class="save-btn animated-btn" (click)="updateProfile()" [disabled]="isSaving">
+                <span class="btn-icon">💾</span> {{ isSaving ? 'Saving...' : 'Save Changes' }}
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <p>© 2025 Electrical Equipment Hub. All rights reserved. <span class="footer-icon animated-icon">⚡</span></p>
+    </footer>
+  </div>

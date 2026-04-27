@@ -1,0 +1,43 @@
+<div class="notifications-wrapper">
+    <header class="header">
+      <div class="header-content">
+        <h1><span class="icon animated-icon">🔔</span> Your Notifications</h1>
+        <div class="user-section">
+          <span class="greeting animated-text">Hello, {{ username }}!</span>
+          <button class="home-btn animated-btn" (click)="goToHome()">
+            <span class="btn-icon">🏠</span> Home
+          </button>
+          <button class="logout-btn animated-btn" (click)="logout()">
+            <span class="btn-icon">🚪</span> Logout
+          </button>
+        </div>
+      </div>
+    </header>
+    <main class="main-content">
+      <section class="notifications-section">
+        <div class="notifications-container">
+          <h2 class="section-title animated-text">Recent Updates</h2>
+          <div *ngIf="isLoading" class="loading">Loading notifications...</div>
+          <div *ngIf="errorMessage" class="error-message animated-text">{{ errorMessage }}</div>
+          <div *ngIf="!isLoading && notifications.length === 0" class="no-notifications">
+            <p>No notifications yet.</p>
+          </div>
+          <div *ngFor="let notification of notifications" class="notification-card animated-card">
+            <div class="notification-content">
+              <span class="notification-icon" [ngClass]="notification.type === 'order' ? 'order-icon' : 'repair-icon'">
+                {{ notification.type === 'order' ? '🛒' : '🔧' }}
+              </span>
+              <div class="notification-details">
+                <h3>{{ notification.title }}</h3>
+                <p>{{ notification.message }}</p>
+                <span class="timestamp">{{ notification.createdAt | date:'medium' }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <p>© 2025 Electrical Equipment Hub. All rights reserved. <span class="footer-icon animated-icon">⚡</span></p>
+    </footer>
+  </div>

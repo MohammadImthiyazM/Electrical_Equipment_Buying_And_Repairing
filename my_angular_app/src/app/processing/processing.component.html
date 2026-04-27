@@ -1,0 +1,31 @@
+<div class="processing-wrapper">
+    <header class="header">
+      <h1><span class="icon animated-icon">⏳</span> Order Processing</h1>
+    </header>
+    <main class="main-content">
+      <section class="processing-section">
+        <div *ngIf="isProcessing" class="processing-container">
+          <div class="spinner"></div>
+          <p class="processing-message">Processing your order, please wait...</p>
+        </div>
+        <div *ngIf="!isProcessing" class="confirmation-container">
+          <h2 class="confirmation-title animated-text">Order Confirmed!</h2>
+          <p class="confirmation-message">Your order #{{ order?.orderId?.slice(-6) }} has been successfully placed.</p>
+          <div class="action-buttons">
+            <button class="view-btn animated-btn" (click)="viewPDF()">
+              <span class="btn-icon">📄</span> View PDF
+            </button>
+            <button class="download-btn animated-btn" (click)="downloadPDF()">
+              <span class="btn-icon">⬇️</span> Download PDF
+            </button>
+            <button class="home-btn animated-btn" (click)="goToHome()">
+              <span class="btn-icon">🏠</span> Back to Home
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <p>© 2025 Electrical Equipment Hub. All rights reserved. <span class="footer-icon animated-icon">⚡</span></p>
+    </footer>
+  </div>

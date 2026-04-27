@@ -1,0 +1,39 @@
+<div class="repair-wrapper">
+  <header class="header">
+    <h1><span class="icon">⚡</span> Electrical Equipment Hub</h1>
+    <button class="back-btn" (click)="goBack()">Back to Home</button>
+  </header>
+  <main class="main-content">
+    <div class="repair-card">
+      <h2>Request a Repair</h2>
+      <form (ngSubmit)="onSubmit()" class="repair-form">
+        <div class="message-box">
+          <div class="success-message" *ngIf="successMessage">{{ successMessage }}</div>
+          <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+        </div>
+        <div class="form-group">
+          <label for="equipmentName">Equipment Name</label>
+          <input
+            type="text"
+            id="equipmentName"
+            name="equipmentName"
+            [(ngModel)]="equipmentName"
+            placeholder="e.g., Ceiling Fan"
+            required>
+        </div>
+        <div class="form-group">
+          <label for="issueDescription">Issue Description</label>
+          <textarea
+            id="issueDescription"
+            name="issueDescription"
+            [(ngModel)]="issueDescription"
+            placeholder="Describe the problem (e.g., Not spinning, making noise)"
+            required></textarea>
+        </div>
+        <button type="submit" class="submit-btn" [disabled]="isLoading">
+          {{ isLoading ? 'Submitting...' : 'Submit Repair' }}
+        </button>
+      </form>
+    </div>
+  </main>
+</div>

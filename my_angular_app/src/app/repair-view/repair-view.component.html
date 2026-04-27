@@ -1,0 +1,49 @@
+<div class="container mx-auto p-4 bg-gray-100 min-h-screen">
+  <div class="bg-white shadow-lg rounded-lg p-6">
+    <div class="border-b-2 border-indigo-500 pb-2 mb-4">
+      <h2 class="text-2xl font-bold text-gray-800">View Repairs</h2>
+      <p class="text-gray-600">Review submitted repair requests.</p>
+    </div>
+    <div class="mb-4">
+      <div class="bg-red-100 text-red-700 p-2 rounded" *ngIf="errorMessage">
+        <span class="mr-2">❌</span> {{ errorMessage }}
+      </div>
+      <div class="bg-green-100 text-green-700 p-2 rounded fixed top-4 right-4 z-50" *ngIf="successMessage" [@fadeAnimation]>
+        <span class="mr-2">✅</span> {{ successMessage }}
+      </div>
+    </div>
+
+    <div class="mb-6">
+      <h3 class="text-xl font-semibold text-gray-700">Repair Requests</h3>
+      <div class="text-center text-gray-500 italic" *ngIf="isLoading">Loading...</div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" *ngIf="!isLoading && repairs.length">
+        <div *ngFor="let repair of repairs" class="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition-shadow duration-300">
+          <h4 class="text-lg font-semibold text-indigo-600">{{ repair.equipmentName }}</h4>
+          <p class="text-gray-600"><strong>Issue:</strong> {{ repair.issueDescription }}</p>
+          <p class="text-gray-600"><strong>Submitted by:</strong> {{ repair.username }}</p>
+          <p class="text-gray-600"><strong>Status:</strong> {{ repair.status | titlecase }}</p>
+          <div class="mt-4 space-x-2">
+            <button (click)="updateRepairStatus(repair, 'pending')"
+              class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">
+              Pending
+            </button>
+            <button (click)="updateRepairStatus(repair, 'in-progress')"
+              class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">
+              In Progress
+            </button>
+            <button (click)="updateRepairStatus(repair, 'completed')"
+              class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
+              Reviewed
+            </button>
+            <button (click)="deleteRepair(repair)"
+              class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
+              Delete
+            </button>
+          </div>
+          <p class="text-green-600 font-medium mt-2" *ngIf="repair.reviewed">Reviewed Successfully</p>
+        </div>
+      </div>
+      <p class="text-gray-500 italic" *ngIf="!isLoading && !repairs.length">No repair requests found.</p>
+    </div>
+  </div>
+</div>

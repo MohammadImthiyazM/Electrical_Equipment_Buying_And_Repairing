@@ -1,0 +1,40 @@
+<div class="products-wrapper">
+  <header class="header">
+    <h1 (click)="goToHome()" class="clickable-title"><span class="icon">⚡️</span> Products</h1>
+    <div class="nav-buttons">
+      <button class="cart-btn" (click)="goToCart()">Go to Cart</button>
+    </div>
+  </header>
+  <main class="main-content">
+    <section class="products-section">
+      <h2>Available Products</h2>
+      <div class="message-box">
+        <div class="success-message" *ngIf="successMessage">
+          {{ successMessage }}
+          <button class="go-to-cart-btn" (click)="goToCart()" *ngIf="showGoToCart">Go to Cart</button>
+        </div>
+        <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+        <div class="loading-message" *ngIf="isLoading">Loading products...</div>
+      </div>
+      <div class="products-grid" *ngIf="!isLoading && !errorMessage && products.length > 0; else noProducts">
+        <div class="product-card" *ngFor="let product of products">
+          <img [src]="product.imageUrl" [alt]="product.name" class="product-image">
+          <div class="card-content">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description }}</p>
+            <span class="price">Rs. {{ product.price.toFixed(2) }}</span>
+            <button class="add-to-cart-btn" (click)="addToCart(product)" [disabled]="cartCounts[product._id]">
+              {{ cartCounts[product._id] ? 'In Cart' : 'Add to Cart' }}
+            </button>
+          </div>
+        </div>
+      </div>
+      <ng-template #noProducts>
+        <p class="empty-message">No products available at the moment.</p>
+      </ng-template>
+    </section>
+  </main>
+  <footer class="footer">
+    <p>© 2025 Electrical Equipment Hub. All rights reserved.</p>
+  </footer>
+</div>

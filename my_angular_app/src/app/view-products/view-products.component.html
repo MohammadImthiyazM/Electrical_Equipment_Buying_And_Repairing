@@ -1,0 +1,94 @@
+<div class="view-products-wrapper">
+  <header class="header">
+    <div class="header-content">
+      <h1><span class="icon animated-icon">📊</span> View Products</h1>
+      <button class="back-btn animated-btn" (click)="goBack()">
+        <span class="btn-icon">⬅️</span> Back to Admin Home
+      </button>
+    </div>
+  </header>
+  <main class="main-content">
+    <!-- Statistics -->
+    <section class="stats-section">
+      <h2>Statistics</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3>Total Sales</h3>
+          <p>Rs. {{ stats.totalSales.toFixed(2) }}</p>
+        </div>
+        <div class="stat-card">
+          <h3>Total Orders</h3>
+          <p>{{ stats.totalOrders }}</p>
+        </div>
+        <div class="stat-card">
+          <h3>Top Products</h3>
+          <ul>
+            <li *ngFor="let product of stats.topProducts">
+              {{ product.name }} (Sold: {{ product.sold }})
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Section with Chart -->
+    <section class="products-section">
+      <h2>Products</h2>
+      <div class="chart-container">
+        <canvas id="salesChart"></canvas>
+      </div>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Price (Rs.)</th>
+              <th>Stock</th>
+              <th>Sold</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products">
+              <td>{{ product.id }}</td>
+              <td>{{ product.name }}</td>
+              <td>{{ product.price.toFixed(2) }}</td>
+              <td>{{ product.stock }}</td>
+              <td>{{ product.sold }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Orders Table -->
+    <section class="orders-section">
+      <h2>Customer Orders</h2>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Customer</th>
+              <th>Date</th>
+              <th>Total (Rs.)</th>
+              <th>Items</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let order of orders">
+              <td>{{ order.orderId }}</td>
+              <td>{{ order.customer }}</td>
+              <td>{{ order.date }}</td>
+              <td>{{ order.total.toFixed(2) }}</td>
+              <td>{{ order.items.join(', ') }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <p>© 2025 Electrical Equipment Hub. All rights reserved. <span class="footer-icon animated-icon">⚡</span></p>
+  </footer>
+</div>

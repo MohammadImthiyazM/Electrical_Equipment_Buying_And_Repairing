@@ -1,0 +1,222 @@
+.view-products-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 2rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.header .icon {
+  font-size: 2.5rem;
+  margin-right: 12px;
+  filter: drop-shadow(0 0 5px rgba(255, 107, 107, 0.5));
+}
+
+.back-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #ff6b6b, #ff8e53);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-size: 1rem;
+}
+
+.back-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
+}
+
+.btn-icon {
+  margin-right: 8px;
+}
+
+.main-content {
+  flex: 1;
+  max-width: 1400px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.stats-section, .products-section, .orders-section {
+  margin-bottom: 40px;
+}
+
+.stats-section h2, .products-section h2, .orders-section h2 {
+  font-size: 1.8rem;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.stats-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border: 2px solid transparent;
+  background-image: linear-gradient(white, white), linear-gradient(90deg, #ff6b6b, #ff8e53);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  padding: 20px;
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.stat-card h3 {
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.stat-card p, .stat-card ul {
+  font-size: 1rem;
+  color: #555;
+}
+
+.stat-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.stat-card li {
+  margin: 5px 0;
+}
+
+.table-container {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border: 2px solid transparent;
+  background-image: linear-gradient(white, white), linear-gradient(90deg, #ff6b6b, #ff8e53);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background: linear-gradient(90deg, #ff6b6b, #ff8e53);
+  color: white;
+  font-weight: bold;
+}
+
+td {
+  color: #333;
+}
+
+tr:hover {
+  background-color: rgba(255, 107, 107, 0.1);
+}
+
+.chart-container {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border: 2px solid transparent;
+  background-image: linear-gradient(white, white), linear-gradient(90deg, #ff6b6b, #ff8e53);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  min-height: 400px; /* Ensure container has space for chart */
+}
+
+#salesChart {
+  max-width: 100%;
+  height: 350px !important; /* Set a fixed height for the chart */
+}
+
+.footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: auto;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.footer-icon {
+  font-size: 1.2rem;
+  filter: drop-shadow(0 0 5px rgba(255, 107, 107, 0.5));
+}
+
+.animated-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+}
+
+.animated-btn:hover::after {
+  width: 200px;
+  height: 200px;
+}
+
+.animated-icon {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
